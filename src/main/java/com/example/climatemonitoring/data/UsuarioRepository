@@ -1,0 +1,22 @@
+package com.example.climatemonitoring.data;
+
+import com.example.climatemonitoring.model.Usuario;
+
+import java.util.List;
+
+public class UsuarioRepository {
+
+    private final Persistence<Usuario> persistence;
+
+    public UsuarioRepository(Persistence<Usuario> persistence) {
+        this.persistence = persistence;
+    }
+
+    public List<Usuario> listarTodos() {
+        return persistence.listarTodos();
+    }
+
+    public void salvarTodos(List<Usuario> usuarios) {
+        persistence.salvarTodos(usuarios);
+    }
+}

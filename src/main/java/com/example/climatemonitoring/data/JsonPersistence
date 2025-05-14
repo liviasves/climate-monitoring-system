@@ -1,0 +1,24 @@
+package com.example.climatemonitoring.data;
+
+import com.example.climatemonitoring.utils.JsonUtil;
+
+import java.util.List;
+
+public class JsonPersistence<T> implements Persistence<T> {
+
+    private final String filePath;
+
+    public JsonPersistence(String filePath) {
+        this.filePath = filePath;
+    }
+
+    @Override
+    public List<T> listarTodos() {
+        return JsonUtil.lerJsonParaLista(filePath, (Class<T>) Object.class);
+    }
+
+    @Override
+    public void salvarTodos(List<T> items) {
+        JsonUtil.salvarListaComoJson(filePath, items);
+    }
+}

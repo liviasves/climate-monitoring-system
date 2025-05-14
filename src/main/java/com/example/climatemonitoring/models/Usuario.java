@@ -4,11 +4,17 @@ public class Usuario {
     private String nome;
     private String email;
 
+    // Construtor padrão (obrigatório para Gson)
+    public Usuario() {
+    }
+
+    // Construtor com parâmetros
     public Usuario(String nome, String email) {
         this.nome = nome;
         this.email = email;
     }
 
+    // Getters e Setters
     public String getNome() {
         return nome;
     }
@@ -25,6 +31,7 @@ public class Usuario {
         this.email = email;
     }
 
+    // toString
     @Override
     public String toString() {
         return "Usuario{" +
