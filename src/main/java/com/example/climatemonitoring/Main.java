@@ -10,11 +10,7 @@ import com.example.climatemonitoring.view.MenuPrincipal;
 import com.example.climatemonitoring.view.MenuUsuario;
 import com.example.climatemonitoring.view.TerminalUtil;
 
-/**
- * Classe principal que integra todos os componentes do sistema.
- * Segue o princípio SRP ao ter apenas a responsabilidade de inicializar e integrar os componentes.
- * Segue o princípio DIP ao criar as dependências e injetá-las nos componentes que as utilizam.
- */
+
 public class Main {
     public static void main(String[] args) {
         // Inicializa os repositórios

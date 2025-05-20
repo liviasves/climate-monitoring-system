@@ -22,8 +22,8 @@ public class MainTest {
     @Test
     public void testObserverPattern() {
         // Create users and observers
-        Usuario usuario1 = new Usuario("João", "joao@email.com");
-        Usuario usuario2 = new Usuario("Maria", "maria@email.com");
+        Usuario usuario1 = new Usuario("João", "joao@email.com", "123");
+        Usuario usuario2 = new Usuario("Maria", "maria@email.com", "123");
 
         UsuarioObserver observer1 = new UsuarioObserver(usuario1);
         UsuarioObserver observer2 = new UsuarioObserver(usuario2);
@@ -67,8 +67,8 @@ public class MainTest {
 
         // Create list of Usuario objects
         List<Usuario> usuarios = new ArrayList<>();
-        usuarios.add(new Usuario("João", "joao@email.com"));
-        usuarios.add(new Usuario("Maria", "maria@email.com"));
+        usuarios.add(new Usuario("João", "joao@email.com", "123"));
+        usuarios.add(new Usuario("Maria", "maria@email.com", "123"));
 
         // Write to JSON
         JsonUtil.writeJsonList(filePath, usuarios);
