@@ -5,18 +5,24 @@ import com.example.climatemonitoring.models.Notificacao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 /**
  * Serviço para gerenciamento de notificações.
- * Segue o princípio SRP ao ter apenas a responsabilidade de gerenciar notificações.
- * Segue o princípio DIP ao depender de abstrações (repositório) injetadas via construtor.
+ * Segue o princípio SRP ao ter apenas a responsabilidade de gerenciar
+ * notificações.
+ * Segue o princípio DIP ao depender de abstrações (repositório) injetadas via
+ * construtor.
  */
+
+@Service
 public class NotificacaoService {
     private NotificacaoRepository notificacaoRepository;
-    
+
     public NotificacaoService(NotificacaoRepository notificacaoRepository) {
         this.notificacaoRepository = notificacaoRepository;
     }
-    
+
     /**
      * Registra uma nova notificação.
      * 
@@ -27,7 +33,7 @@ public class NotificacaoService {
         Notificacao notificacao = new Notificacao(mensagem);
         return notificacaoRepository.adicionar(notificacao);
     }
-    
+
     /**
      * Lista todas as notificações registradas.
      * 

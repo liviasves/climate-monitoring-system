@@ -2,18 +2,23 @@ package com.example.climatemonitoring.view;
 
 import java.util.Scanner;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Classe utilitária para facilitar a interação com o terminal.
- * Segue o princípio SRP (Single Responsibility Principle) ao ter apenas a responsabilidade
+ * Segue o princípio SRP (Single Responsibility Principle) ao ter apenas a
+ * responsabilidade
  * de gerenciar entrada e saída do terminal.
  */
+
+@Component
 public class TerminalUtil {
     private Scanner scanner;
-    
+
     public TerminalUtil() {
         this.scanner = new Scanner(System.in);
     }
-    
+
     /**
      * Exibe uma mensagem no terminal.
      * 
@@ -22,7 +27,7 @@ public class TerminalUtil {
     public void exibirMensagem(String mensagem) {
         System.out.println(mensagem);
     }
-    
+
     /**
      * Lê uma string do terminal.
      * 
@@ -33,7 +38,7 @@ public class TerminalUtil {
         System.out.print(prompt);
         return scanner.nextLine();
     }
-    
+
     /**
      * Lê um número inteiro do terminal.
      * 
@@ -51,7 +56,7 @@ public class TerminalUtil {
             }
         }
     }
-    
+
     /**
      * Lê um número decimal do terminal.
      * 
@@ -69,7 +74,7 @@ public class TerminalUtil {
             }
         }
     }
-    
+
     /**
      * Limpa a tela do terminal.
      */
@@ -77,13 +82,13 @@ public class TerminalUtil {
         // Em sistemas Unix/Linux/Mac
         System.out.print("\033[H\033[2J");
         System.out.flush();
-        
+
         // Em sistemas Windows (menos eficiente)
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
     }
-    
+
     /**
      * Pausa a execução até que o usuário pressione ENTER.
      */
@@ -91,7 +96,7 @@ public class TerminalUtil {
         System.out.println("\nPressione ENTER para continuar...");
         scanner.nextLine();
     }
-    
+
     /**
      * Fecha o scanner.
      */

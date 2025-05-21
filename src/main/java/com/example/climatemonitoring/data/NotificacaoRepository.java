@@ -9,16 +9,21 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.google.gson.reflect.TypeToken;
 
 /**
  * Repositório para persistência de notificações em arquivo JSON.
- * Segue o princípio SRP ao ter apenas a responsabilidade de gerenciar a persistência de notificações.
+ * Segue o princípio SRP ao ter apenas a responsabilidade de gerenciar a
+ * persistência de notificações.
  */
+@Repository
 public class NotificacaoRepository {
     private static final String ARQUIVO_NOTIFICACOES = "dados/notificacoes.json";
-    private static final Type TIPO_LISTA = new TypeToken<List<Notificacao>>(){}.getType();
-    
+    private static final Type TIPO_LISTA = new TypeToken<List<Notificacao>>() {
+    }.getType();
+
     /**
      * Construtor que garante a existência do diretório de dados.
      */
@@ -28,7 +33,7 @@ public class NotificacaoRepository {
             diretorio.mkdirs();
         }
     }
-    
+
     /**
      * Lista todas as notificações.
      * 
@@ -46,7 +51,7 @@ public class NotificacaoRepository {
             return new ArrayList<>();
         }
     }
-    
+
     /**
      * Salva a lista de notificações no arquivo JSON.
      * 
@@ -62,7 +67,7 @@ public class NotificacaoRepository {
             return false;
         }
     }
-    
+
     /**
      * Adiciona uma nova notificação.
      * 

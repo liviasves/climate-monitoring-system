@@ -9,16 +9,21 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.google.gson.reflect.TypeToken;
 
 /**
  * Repositório para persistência de usuários em arquivo JSON.
- * Segue o princípio SRP ao ter apenas a responsabilidade de gerenciar a persistência de usuários.
+ * Segue o princípio SRP ao ter apenas a responsabilidade de gerenciar a
+ * persistência de usuários.
  */
+@Repository
 public class UsuarioRepository {
     private static final String ARQUIVO_USUARIOS = "dados/usuarios.json";
-    private static final Type TIPO_LISTA = new TypeToken<List<Usuario>>(){}.getType();
-    
+    private static final Type TIPO_LISTA = new TypeToken<List<Usuario>>() {
+    }.getType();
+
     /**
      * Construtor que garante a existência do diretório de dados.
      */
@@ -28,7 +33,7 @@ public class UsuarioRepository {
             diretorio.mkdirs();
         }
     }
-    
+
     /**
      * Lista todos os usuários cadastrados.
      * 
@@ -46,7 +51,7 @@ public class UsuarioRepository {
             return new ArrayList<>();
         }
     }
-    
+
     /**
      * Salva a lista de usuários no arquivo JSON.
      * 
@@ -62,7 +67,7 @@ public class UsuarioRepository {
             return false;
         }
     }
-    
+
     /**
      * Busca um usuário pelo email.
      * 
@@ -78,7 +83,7 @@ public class UsuarioRepository {
         }
         return null;
     }
-    
+
     /**
      * Adiciona um novo usuário.
      * 
@@ -87,14 +92,14 @@ public class UsuarioRepository {
      */
     public boolean adicionar(Usuario usuario) {
         List<Usuario> usuarios = listarTodos();
-        
+
         // Verifica se já existe um usuário com o mesmo email
         for (Usuario u : usuarios) {
             if (u.getEmail().equals(usuario.getEmail())) {
                 return false;
             }
         }
-        
+
         usuarios.add(usuario);
         return salvarTodos(usuarios);
     }

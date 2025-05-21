@@ -2,13 +2,14 @@ package com.example.climatemonitoring.service;
 
 import com.example.climatemonitoring.data.UsuarioRepository;
 import com.example.climatemonitoring.models.Usuario;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+@Service
 public class UsuarioService {
     private UsuarioRepository usuarioRepository;
-    
+
     public UsuarioService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
@@ -29,8 +30,6 @@ public class UsuarioService {
         Usuario novoUsuario = new Usuario(nome, email, senha);
         return usuarioRepository.adicionar(novoUsuario);
     }
-
-
 
     public List<Usuario> listarTodos() {
         return usuarioRepository.listarTodos();
